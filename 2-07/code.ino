@@ -23,7 +23,7 @@ void setup() {
 
 
 void loop() {
-    // this gets the distance forever and turns servo if too close
+    // this gets the distance forever
     
     digitalWrite(pinTrig, LOW);  
     delayMicroseconds(2);  
@@ -31,16 +31,17 @@ void loop() {
     delayMicroseconds(10);  
     digitalWrite(pinTrig, LOW); 
 
-    // calculating
+    // calculating and printing
     duration = pulseIn(pinEcho, HIGH);
     distance = (duration*.0343)/2;
-
-    // moveing servo if too close
-    if (distance < 50) {    
+    Serial.print("Distance: ");
+    Serial.println(distance);
+    if (distance < 50) {
+        
         if (servoLocation == 180) {
-            diffrence = -1;
+            diffrence = -10;
         } else if (servoLocation == 0) {
-            diffrence = 1;
+            diffrence = 10;
         }
         servoLocation = servoLocation + diffrence;
         servoPin.write(servoLocation);
