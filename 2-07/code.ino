@@ -1,6 +1,6 @@
 // created by Elliott Roach
 // created on mar 2026
-// This is a sonar distance sensors.
+// This is a sonar distance sensors and moves a servo if under 50 cm.
 
 #include <Servo.h>
 
